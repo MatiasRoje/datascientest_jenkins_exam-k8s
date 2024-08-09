@@ -20,7 +20,7 @@ pipeline {
                             sh "git config user.email rojechi@gmail.com"
                             sh "git config user.name MatiasRoje"
                             sh "cat root-service.yaml"
-                            sh "sed -i 's+matiasroje/root-service:.*+matiasroje/rootservice:${DOCKERTAG}+g' root-service.yaml"
+                            sh "sed -i 's+matiasroje/root-service:.*+matiasroje/root-service:${DOCKERTAG}+g' root-service.yaml"
                             sh "cat root-service.yaml"
                             sh "git add ."
                             sh "git commit -m 'Done by Jenkins Job Update Manifest: ${env.BUILD_NUMBER}'"
