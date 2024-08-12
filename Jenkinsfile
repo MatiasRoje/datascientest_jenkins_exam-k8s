@@ -6,7 +6,7 @@ pipeline {
             steps {
                 git(
                     url: 'https://github.com/MatiasRoje/datascientest_jenkins_exam-k8s.git',
-                    branch: 'main',
+                    branch: 'dev',
                     credentialsId: 'github'
                 )
             }
@@ -33,7 +33,7 @@ pipeline {
                             sh "cat cast-service.yaml"
                             sh "git add ."
                             sh "git commit -m 'Done by Jenkins Job Update Manifest: ${env.BUILD_NUMBER}'"
-                            sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/datascientest_jenkins_exam-k8s.git HEAD:main"
+                            sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/datascientest_jenkins_exam-k8s.git HEAD:dev"
                         }
                     }
                 }

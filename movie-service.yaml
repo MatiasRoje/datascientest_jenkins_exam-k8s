@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: movie-service
-  namespace: prod
+  namespace: dev
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: movie-service
-        image: matiasroje/movie-service:24
+        image: matiasroje/movie-service-dev:1
         ports:
         - containerPort: 8000
         env:

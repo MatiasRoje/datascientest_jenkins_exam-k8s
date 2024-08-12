@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: root-service
-  namespace: prod
+  namespace: dev
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: root-service
-        image: matiasroje/root-service:24
+        image: matiasroje/root-service-dev:1
         ports:
         - containerPort: 8000
         env:
