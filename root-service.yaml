@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: root-service
-        image: matiasroje/root-service-dev:1
+        image: matiasroje/root-service-dev:4
         ports:
         - containerPort: 8000
         env:
