@@ -1,42 +1,42 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: argocd-dev-server-ingress
-  namespace: argocd
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/app-root: /login
-    cert-manager.io/acme-challenge-type: http01
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: jenkins-dev.matiasroje-devops.dns-dynamic.net
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: root-service
-            port:
-              number: 8001
-      - path: /api/v1/movies
-        pathType: Prefix
-        backend:
-          service:
-            name: movie-service
-            port:
-              number: 8002
-      - path: /api/v1/casts
-        pathType: Prefix
-        backend:
-          service:
-            name: cast-service
-            port:
-              number: 8003
-  tls:
-  - hosts:
-    - jenkins-dev.matiasroje-devops.dns-dynamic.net
-    secretName: jenkins-dev.matiasroje-devops.dns-dynamic.net.tls # This should match the secret name used by ArgoCD
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: argocd-dev-server-ingress
+#   namespace: argocd
+#   annotations:
+#     cert-manager.io/cluster-issuer: letsencrypt-prod
+#     nginx.ingress.kubernetes.io/app-root: /login
+#     cert-manager.io/acme-challenge-type: http01
+#     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+#     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - host: jenkins-dev.matiasroje-devops.dns-dynamic.net
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: root-service
+#             port:
+#               number: 8001
+#       - path: /api/v1/movies
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: movie-service
+#             port:
+#               number: 8002
+#       - path: /api/v1/casts
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: cast-service
+#             port:
+#               number: 8003
+#   tls:
+#   - hosts:
+#     - jenkins-dev.matiasroje-devops.dns-dynamic.net
+#     secretName: jenkins-dev.matiasroje-devops.dns-dynamic.net.tls # This should match the secret name used by ArgoCD
