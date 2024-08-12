@@ -20,8 +20,17 @@ pipeline {
                             sh "git config user.email rojechi@gmail.com"
                             sh "git config user.name MatiasRoje"
                             sh "cat root-service.yaml"
+                            sh "#############################"
                             sh "sed -i 's+matiasroje/root-service:.*+matiasroje/root-service:${DOCKERTAG}+g' root-service.yaml"
                             sh "cat root-service.yaml"
+                            sh "#############################"
+                            sh "cat movie-service.yaml"
+                            sh "sed -i 's+matiasroje/movie-service:.*+matiasroje/movie-service:${DOCKERTAG}+g' movie-service.yaml"
+                            sh "cat movie-service.yaml"
+                            sh "#############################"
+                            sh "cat cast-service.yaml"
+                            sh "sed -i 's+matiasroje/cast-service:.*+matiasroje/cast-service:${DOCKERTAG}+g' cast-service.yaml"
+                            sh "cat cast-service.yaml"
                             sh "git add ."
                             sh "git commit -m 'Done by Jenkins Job Update Manifest: ${env.BUILD_NUMBER}'"
                             sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/datascientest_jenkins_exam-k8s.git HEAD:main"
@@ -31,8 +40,4 @@ pipeline {
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a5b5fc9579c4580a0192867aa01a5c55400ce2ea
