@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: movie-service
-        image: matiasroje/movie-service:1.1
+        image: matiasroje/movie-service:24
         ports:
         - containerPort: 8000
         env:
