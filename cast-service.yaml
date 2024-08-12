@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: cast-service
-        image: matiasroje/cast-service:2
+        image: matiasroje/cast-service:28
         ports:
         - containerPort: 8000
         env:
